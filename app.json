@@ -22,6 +22,12 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "fonts": {
+      "Pretendard-Regular": "./assets/fonts/Pretendard-Regular.otf",
+      "Pretendard-Medium": "./assets/fonts/Pretendard-Medium.otf",
+      "Pretendard-Bold": "./assets/fonts/Pretendard-Bold.otf",
+      "Pretendard-Light": "./assets/fonts/Pretendard-Light.otf"
+    },
     "plugins": [
       "expo-router",
       [
@@ -36,6 +42,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "62612064-acb3-4513-b165-63cb6e03f3e6"
+      }
+    },
+    "owner": "postmelee",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/62612064-acb3-4513-b165-63cb6e03f3e6"
     }
   }
 }

@@ -12,28 +12,35 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+    const colorScheme = useColorScheme();
+    const [loaded] = useFonts({
+        SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+        PretendardRegular: require('../assets/fonts/Pretendard-Regular.otf'),
+        PretendardBold: require('../assets/fonts/Pretendard-Bold.otf'),
+        PretendardMedium: require('../assets/fonts/Pretendard-Medium.otf'),
+        PretendardLight: require('../assets/fonts/Pretendard-Light.otf'),
+    });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    useEffect(() => {
+        if (loaded) {
+            SplashScreen.hideAsync();
+        }
+    }, [loaded]);
+
+    if (!loaded) {
+        return null;
     }
-  }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            <Stack>
+                <Stack.Screen name='index' options={{ headerShown: false }} />
+                <Stack.Screen name='selectMajor' options={{ headerShown: false }} />
+                <Stack.Screen name='selectGrade' options={{ headerShown: false }} />
+                <Stack.Screen name='selectInterest' options={{ headerShown: false }} />
+                <Stack.Screen name='chat' options={{ headerShown: false }} />
+                <Stack.Screen name='+not-found' />
+            </Stack>
+        </ThemeProvider>
+    );
 }
